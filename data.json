@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Kome",
+        "score": 54
+    },
+    {
+        "id": 2,
+        "name": "Ikechukwu",
+        "score": 55
+    },
+    {
+        "id": 3,
+        "name": "Melvin",
+        "score": 55
+    },
+    {
+        "id": 4,
+        "name": "Vera",
+        "score": 56
+    },
+    {
+        "id": 5,
+        "name": "Tunde",
+        "score": 57
+    },
+    {
+        "id": 6,
+        "name": "Pepe",
+        "score": 58
+    },
+    {
+        "id": 7,
+        "name": "Goddy",
+        "score": 59 
+    },
+    {
+        "id": 8,
+        "name": "Olive",
+        "score": 60
+    },
+    {
+        "id": 9,
+        "name": "Cream",
+        "score": 61
+    },
+    {
+        "id": 100,
+        "name": "Simp",
+        "score": 62 
+    }
+]
