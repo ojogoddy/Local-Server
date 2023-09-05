@@ -70,6 +70,7 @@
 import * as http from "http"
 import data from "./data.json"
 import food from "./food.json"
+import student from "./student.json"
 
 // const port: number = 8080
 // const server= http.createServer((req:any, res:any)=>{
@@ -101,14 +102,14 @@ import food from "./food.json"
 
 const port:number =8090
 const server = http.createServer((req:any, res:any)=>{
-    if(req.url === "/food")
+    if(req.url === "/food" && req.method === "GET")
     {
         
         res.setHeader("content-type", "application/json")
         res.writeHead(200)
         res.write(JSON.stringify(food))
         res.end()
-    }else if(req.url === "/data")
+    }else if(req.url === "/data" && req.method === "GET")
     {
         res.setHeader("content-type", "application/json")
         res.writehead(200)
@@ -126,3 +127,89 @@ server.on("connection", ()=>{
 server.listen(port, ()=>{
     console.log("server number port", data, food)
 })
+
+const ports = 9000
+const servers = http.createServer((req:any, res:any)=>{
+switch(req.url){
+    case "/food":
+        res.setHeader("content-type", "application/json")
+        res.writeHead(200)
+        res.write(JSON.stringify(food))
+        res.end()
+        break;
+    case"/data" :
+        res.setHeader("content-type", "application/json")
+        res.writeHead(200)
+        res.write(JSON.stringify(data))
+        res.end()
+        break;
+    default:
+        res.setHeader("content-type", "application/json")
+        res.writeHead(404)
+        res.end("not found")
+        break
+    }
+}) 
+servers.listen(ports, ()=>{
+    console.log("server is running at port ", ports)
+})
+
+// const port =8080
+// const routeHandlers= new Map()
+// routeHandlers.set("/food", (req: any, res:any) =>{
+//     res.setHeader("content-type", "application/json")
+//     res.writeHead(404)
+//     res.write(JSON.stringify(food))
+//     res.end()
+// })
+// routeHandlers.set("/data", (res:any, req:any)=>{
+//     res.setHeader("content-type", "application/json")
+//     res.writeHead(404)
+//     res.write(JSON.stringify(data))
+//     res.end()
+// })
+// const server=http.createServer((res:any, req:any)=>{
+//     const handler = routeHandlers.get(req.url) || notFound;
+
+//     handler(req, res)
+// })
+// function notFound(req:any, res:any){
+//     res.setHeader("content-type", "application/json")
+//     res.writeHead(404)
+//     res.end()
+// }
+// server.listen(port, ()=>{
+//     console.log("server is running at port ", port)
+// })
+// const port = 1000
+// const server = http.createServer((req:any, res:any)=>{
+//     switch(req.url){
+//         case"/food":
+//         res.setHeader("content-type", "application/json")
+//         res.writeHead(200)
+//         res.write(JSON.stringify(food))
+//         res.end()
+//         break;
+//         case"/data":
+//         res.setHeader("content-type", "application/json")
+//         res.writeHead(200)
+//         res.write(JSON.stringify(food))
+//         res.end()
+//         break;
+//         case("/student"):
+//         res.setHeader("content-type", "application/json")
+//         res.writeHead(200)
+//         res.write(JSON.stringify(student))
+//         res.end()
+//         break;
+//         default:
+//             res.setHeader("content-type", "application/json")
+//             res.writeHead(404)
+//             res.end()
+//             break;
+//     }
+// })
+
+// server.listen(port, ()=>{
+//     console.log("this server is running at port: ", port)
+// })
